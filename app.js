@@ -36,10 +36,13 @@ async function load(socket) {
     console.log(err);
   }
 }
-require("dotenv").config();
+// require("dotenv").config();
 
 //  Middle Wares
-connect("mongodb://localhost:27017/mssg")
+// connect("mongodb://localhost:27017/mssg")
+connect(
+  "mongodb+srv://suryasarisa99:suryamongosurya@cluster0.xtldukm.mongodb.net/?retryWrites=true&w=majority"
+)
   .then(() => {
     console.log("connected to Db");
   })
@@ -48,7 +51,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(
   cors({
-    origin: ["http://localhost:3000", "http://192.168.0.169:3000"],
+    origin: [
+      "http://localhost:3000",
+      "http://192.168.0.169:3000",
+      "https://surya-mssg.vercel.app",
+    ],
     // origin: "*",
     allowedHeaders: "Content-Type, Authorization",
     methods: "POST, GET, DELETE, PUT, PATCH",
