@@ -153,4 +153,4 @@ app.get("/socket.io/*", (req, res) => {
   res.send("this is socket io");
 });
 
-server.listen(3001);
+server.listen(process.env.PORT || 3001);
